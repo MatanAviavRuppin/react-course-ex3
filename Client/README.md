@@ -9,7 +9,8 @@
 ## Instructions:
 - Go to: ```/src/classes/WebSettings.js```
 and change ```url``` static property to the correct API endpoint
-- At the root of the project folder, run ```npm start```
+- At the root of the project folder, run ```npm install```
+- run ```npm start```
 
 <br />
 
