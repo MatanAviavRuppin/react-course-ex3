@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DishModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="calories" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Recipes" Relationship="Self.IngredientsInRecipe" FromRole="Ingredients" ToRole="Recipes" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cookingMethod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="time" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Ingredients" Relationship="Self.IngredientsInRecipe" FromRole="Recipes" ToRole="Ingredients" />
+  </EntityType>
+  <Association Name="IngredientsInRecipe">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="*" />
+    <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DishDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+    <AssociationSet Name="IngredientsInRecipe" Association="Self.IngredientsInRecipe">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="Recipes" EntitySet="Recipes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
