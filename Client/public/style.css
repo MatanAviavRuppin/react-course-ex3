@@ -1,0 +1,31 @@
+.h100p {
+     height: 100%;
+}
+
+.custom-modal {
+}
+
+.custom-modal .modal-content {
+     max-height: 70%; 
+     overflow: hidden;
+}
+
+.custom-modal .modal-content .card-content.calculated {
+     height: calc(100% - 45px - 45px);
+     overflow-y: auto;
+     overflow-x: hidden;
+}
+
+.custom-modal .modal-content .card-header, 
+.custom-modal .modal-content  .card-footer {
+     height: 45px;
+}
+
+.card-footer-item {
+     cursor: pointer;
+     transition: .5s all;
+}
+
+.card-footer-item:hover {
+     opacity: 0.5;
+}
