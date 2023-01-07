@@ -12,6 +12,7 @@
 
 
 ## Instructions For Client-Side:
+- Go to: ```Client/README.md``` and read the requirements
 - Go to: ```Client/src/classes/WebSettings.js``` and change the ```url``` static property to the correct API endpoint of the server (if needed)
 - At the root of the client-side project folder, run ```npm install``` in order to install project dependencies
 - At the root of the client-side project folder, run ```npm start```
